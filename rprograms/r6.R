@@ -4,6 +4,7 @@ library(factoextra)
 #importing the Iris dataset and removing categorical attributes
 data <- iris
 data$Species <- NULL
+#data
 
 #K-Means Clustering
 distance1 <- scale(dist(data,method="euclidian"))
