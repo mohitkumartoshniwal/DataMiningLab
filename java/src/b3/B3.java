@@ -37,7 +37,7 @@ class B3 {
 
 	      HashSet<String> items = new HashSet<>();
 
-	      ArrayList<String> al = new ArrayList<>();
+	      ArrayList<String> allPossibleSets = new ArrayList<>();
 
 	      ArrayList<String> transactions = new ArrayList<>();
 
@@ -93,12 +93,12 @@ class B3 {
 
 	                        temp = temp+d[j];
 
-	            al.add(temp);
+	            allPossibleSets.add(temp);
 
 	      }
 	      
 //	      System.out.println("All possible subsets\n");
-//	      for(String a:al) {
+//	      for(String a:allPossibleSets) {
 //	    	  System.out.println(a);
 //	      }
 //	      System.out.println();
@@ -111,7 +111,7 @@ class B3 {
 
 	     System.out.println("\nFrequent "+i+"-itemset");
 
-	     for(String y:al)
+	     for(String y:allPossibleSets)
 
 	    	 if(i == y.length())
 
