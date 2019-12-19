@@ -18,8 +18,11 @@ public class B2 {
 		String maxValName = null;
 		int maxVal=0;
 		for(Map.Entry<String, Integer> me:hm.entrySet()) {
-			if(me.getValue()>maxVal)
+			if(me.getValue()>maxVal) {
 				maxValName=me.getKey();
+				maxVal=me.getValue();
+			}
+				
 		}
 		
 		for(String[] row: csvLines) {

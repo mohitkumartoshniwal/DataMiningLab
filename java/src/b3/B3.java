@@ -8,15 +8,22 @@ class B3 {
 
 	static boolean check(String x1,String x2) {
 
+		//System.out.println("  before check "+x1+" "+x2+"\n");
 		x2 = x2.replace("", ".*");
+		//System.out.println(" check "+x1+" "+x2+"\n");
 
-		if(x1.matches(x2))
+		if(x1.matches(x2)) {
+			//System.out.println("matched");
+			return true;
+		}
 
-		      return true;
+		else{
 
-		else
+			//System.out.println("not matched");
+			 return false;
+		}
 
-		      return false;
+		     
 
 	}
 
@@ -34,7 +41,7 @@ class B3 {
 
 	      ArrayList<String> bl = new ArrayList<>();
 
-	      ArrayList<String> cl = new ArrayList<>();
+	      ArrayList<String> strules = new ArrayList<>();
 
 	      double support = 0.4,confidence=0.5;
 
@@ -61,6 +68,12 @@ class B3 {
 	            data = csv.readLine();
 
 	      }
+	      
+	      System.out.println("All  bl\n");
+	      for(String b:bl) {
+	    	  System.out.println(b);
+	      }
+	      System.out.println();
 
 	      String d[] = hs.toArray(new String[hs.size()]);
 
@@ -83,6 +96,12 @@ class B3 {
 	            al.add(temp);
 
 	      }
+	      
+//	      System.out.println("All possible subsets\n");
+//	      for(String a:al) {
+//	    	  System.out.println(a);
+//	      }
+//	      System.out.println();
 
 	      // generate frequent itemset
 
@@ -100,19 +119,23 @@ class B3 {
 
 	                  double count = 0;
 
-	                  for(String x:bl) 
-
+	                  for(String x:bl) {
 	                	  if(check(x,y))
 
-	                              count++;
+                              count++;
+	                  }
+
+	                	  
 
 	                  if(count/bl.size() >= support)
 
 	                  {
 
-	                	  if(i == 4)
+	                	  if(i == 4) {
+	                		  strules.add(y); 
+	                	  }
 
-	                		 cl.add(y); 
+	                		
 
 	                	  System.out.println(y + " ->"+count/bl.size());
 
@@ -125,10 +148,15 @@ class B3 {
 		}
 
 		System.out.println("\n----------Strong rules------------\n"); 
+		
+//		 for(String c:strules) {
+//	    	  System.out.println(c);
+//	      }
+//	      System.out.println();
 
 		//generate rules
 
-		for(String p:cl)
+		for(String p:strules)
 
 		{
 
@@ -178,7 +206,7 @@ class B3 {
 
 								  }
 
-										if(count2 > 0 && (count1/count2) >= confidence) System.out.println(temp3+"->"+temp4+"confidence: "+count1/count2);
+										if(count2 > 0 && (count1/count2) >= confidence) System.out.println(temp3+"->"+temp4+" confidence: "+count1/count2);
 
 		                  }
 
