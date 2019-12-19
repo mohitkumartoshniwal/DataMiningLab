@@ -35,11 +35,11 @@ class B3 {
 
 	      String data = csv.readLine();
 
-	      HashSet<String> hs = new HashSet<>();
+	      HashSet<String> items = new HashSet<>();
 
 	      ArrayList<String> al = new ArrayList<>();
 
-	      ArrayList<String> bl = new ArrayList<>();
+	      ArrayList<String> transactions = new ArrayList<>();
 
 	      ArrayList<String> strules = new ArrayList<>();
 
@@ -57,25 +57,25 @@ class B3 {
 
 	            {
 
-	            	  hs.add(x);
+	            	  items.add(x);
 
 	                  temp1=temp1+x;
 
 	            }
 
-	            bl.add(temp1);
+	            transactions.add(temp1);
 
 	            data = csv.readLine();
 
 	      }
 	      
-	      System.out.println("All  bl\n");
-	      for(String b:bl) {
+	      System.out.println("All  transactions\n");
+	      for(String b:transactions) {
 	    	  System.out.println(b);
 	      }
 	      System.out.println();
 
-	      String d[] = hs.toArray(new String[hs.size()]);
+	      String d[] = items.toArray(new String[items.size()]);
 
 	      int n = d.length;
 
@@ -119,7 +119,7 @@ class B3 {
 
 	                  double count = 0;
 
-	                  for(String x:bl) {
+	                  for(String x:transactions) {
 	                	  if(check(x,y))
 
                               count++;
@@ -127,7 +127,7 @@ class B3 {
 
 	                	  
 
-	                  if(count/bl.size() >= support)
+	                  if(count/transactions.size() >= support)
 
 	                  {
 
@@ -137,7 +137,7 @@ class B3 {
 
 	                		
 
-	                	  System.out.println(y + " ->"+count/bl.size());
+	                	  System.out.println(y + " ->"+count/transactions.size());
 
 	                  }
 
@@ -192,7 +192,7 @@ class B3 {
 
 				                  double count1=0,count2=0;
 
-				                  for(String x:bl)
+				                  for(String x:transactions)
 
 				                  {
 
